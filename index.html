@@ -701,19 +701,28 @@ ING.push(...SEASON3_ING);
 const ALL_SEASON_ORDERS=[...ORIGINAL_ORDERS,...SEASON2_ORDERS,...SEASON3_ORDERS];
 function freePool(){return st.season3Unlocked||st.seasonMode==='season3'?ALL_SEASON_ORDERS:(st.season2Unlocked||st.seasonMode==='season2'?[...ORIGINAL_ORDERS,...SEASON2_ORDERS]:ORIGINAL_ORDERS);}
 
-/* v9.4: same-origin student session handoff. No student data in URL. */
-const TYCOON_HUB_MODE=false; // Standalone GitHub Pages deployment
-const TYCOON_HUB_STUDENT=(function(){
-  if(!TYCOON_HUB_MODE)return null;
+/* v9.7.5: cross-repository hub handoff; keep student saves isolated per browser. */
+const TYCOON_BRIDGE=(function(){
+  const key='historyTycoonHubBridgeV1';
   try{
-    const no=String(localStorage.getItem('studentNo')||'').trim();
-    const name=String(localStorage.getItem('studentName')||'').trim();
-    const id=String(localStorage.getItem('studentId')||'').trim();
-    const session=String(sessionStorage.getItem('historyHubLoginSessionV1')||'');
-    if(!/^\d{4,10}$/.test(no)||name.length<2||!id||id!==session)return null;
-    return {no,name,id};
-  }catch(e){return null;}
+    const hash=location.hash.slice(1), q=new URLSearchParams(hash);
+    if(q.get('bridge')==='tycoon-s1'){
+      history.replaceState(null,'',location.pathname+location.search);
+      const no=(q.get('no')||'').trim(), name=(q.get('name')||'').trim(), id=(q.get('id')||'').trim();
+      const back=q.get('back')||'';
+      const u=new URL(back);
+      if(!/^\d{4,10}$/.test(no)||name.length<2||id.length>120||!id||u.origin!=='https://tavia08.github.io'||u.pathname.startsWith('/history-tycoon/'))throw Error('invalid handoff');
+      const entry={no,name,id,back:u.href};
+      sessionStorage.setItem(key,JSON.stringify(entry));
+      return entry;
+    }
+    const cached=JSON.parse(sessionStorage.getItem(key)||'null');
+    if(cached&&/^\d{4,10}$/.test(cached.no)&&typeof cached.name==='string'&&cached.name.length>=2&&typeof cached.id==='string')return cached;
+  }catch(e){try{sessionStorage.removeItem(key)}catch(_){} }
+  return null;
 })();
+const TYCOON_HUB_MODE=!!TYCOON_BRIDGE;
+const TYCOON_HUB_STUDENT=TYCOON_BRIDGE;
 const TYCOON_STUDENT_KEY=TYCOON_HUB_STUDENT ? 'history_tycoon_p3_v04_student_'+encodeURIComponent(TYCOON_HUB_STUDENT.id) : (TYCOON_HUB_MODE ? 'history_tycoon_invalid_hub_session' : 'history_tycoon_p3_v04');
 const KEY=TYCOON_STUDENT_KEY;const $=id=>document.getElementById(id);let st={idx:0,money:100,rating:4.5,success:0,selected:[],finished:false,owned:false,logs:[],seasonMode:"story",season2Unlocked:false,freeCycles:0,orderPlan:null};let activeCat='전체';let busy=false;const DECOR=[{id:'lantern',name:'한옥 등불',icon:'🏮',cost:60,desc:'따뜻한 조명으로 찻집 꾸미기'},{id:'flower',name:'매화 화병',icon:'🌸',cost:75,desc:'꽃 장식으로 봄 분위기 연출'},{id:'moon',name:'달빛 창호',icon:'🌙',cost:90,desc:'보랏빛 달빛 느낌 적용'},{id:'shelf',name:'서책 진열장',icon:'📚',cost:110,desc:'역사 서책으로 꾸민 공간'},{id:'screen',name:'매화 병풍',icon:'🖼️',cost:160,level:2,desc:'Lv.2에서 해금 · 우아한 그림 병풍'},{id:'garden',name:'달빛 정원',icon:'🌿',cost:220,level:3,desc:'Lv.3에서 해금 · 고즈넉한 정원 분위기'},{id:'royal',name:'왕실 다과상',icon:'🍡',cost:300,level:4,desc:'Lv.4에서 해금 · 손님 맞이용 다과상'}];
 const P14_THRESHOLDS=[0,3,9,16];
@@ -1377,13 +1386,14 @@ render();
   const label=document.createElement('strong');
   label.textContent='☕ 역사 찻집';
   const note=document.createElement('span');
-  note.textContent='독립 실행판 · 진행 기록은 현재 브라우저에 저장됩니다.';
+  note.textContent=TYCOON_BRIDGE ? `학습실 연결 · ${TYCOON_BRIDGE.no} ${TYCOON_BRIDGE.name} · 이 브라우저에 학생별 저장` : '독립 실행판 · 진행 기록은 현재 브라우저에 저장됩니다.';
   const btn=document.createElement('button');
   btn.type='button';
   btn.textContent='← 역사 학습실로';
   btn.addEventListener('click',()=>{
     try{if(typeof save==='function') save();}catch(e){}
-    window.location.href='https://tavia08.github.io/';
+    if(TYCOON_BRIDGE?.back) window.location.href=TYCOON_BRIDGE.back;
+    else window.location.href='https://tavia08.github.io/';
   });
   bar.append(label,note,btn);
   document.body.prepend(bar);
@@ -1451,7 +1461,8 @@ render();
   const back=document.querySelector('#tycoonHubBar button');
   if(back){back.onclick=function(){try{if(typeof save==='function')save()}catch(e){}
     const ref=document.referrer;
-    if(ref&&ref.startsWith('https://tavia08.github.io/')&&!ref.includes('/history-tycoon/')) location.href=ref;
+    if(TYCOON_BRIDGE?.back) location.href=TYCOON_BRIDGE.back;
+    else if(ref&&ref.startsWith('https://tavia08.github.io/')&&!ref.includes('/history-tycoon/')) location.href=ref;
     else if(history.length>1)history.back();
     else alert('역사 학습실의 정확한 주소가 아직 연결되지 않았습니다. 학습실 주소에서 게임에 입장하면 돌아갈 수 있습니다.');
   };}
