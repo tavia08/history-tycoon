@@ -1089,7 +1089,7 @@ let servingReactionSerial=0;
 let guestEntranceTimer=null;
 let guestExitTimer=null;
 let glowTimers=new Set();
-normalizeP5();recover();normalizeP5();render();if(st.finished&&st.idx<ORDERS.length){$('result').classList.add('show');$('result').textContent='이미 전달이 완료된 주문입니다. 아래의 다음 손님 버튼을 눌러 주세요.';}if(st.idx<ORDERS.length&&!st.finished)guestEntrance();
+normalizeP5();recover();normalizeP5();render();if(st.seasonMode==='story'&&st.idx>=ORDERS.length)end();if(st.finished&&st.idx<ORDERS.length){$('result').classList.add('show');$('result').textContent='이미 전달이 완료된 주문입니다. 아래의 다음 손님 버튼을 눌러 주세요.';}if(st.idx<ORDERS.length&&!st.finished)guestEntrance();
 
 // P13: Daily goals, rotating special orders, tea identities and direct-gesture ingredient placement.
 function p13Ensure(){if(!st.p13Goals||typeof st.p13Goals!=='object')st.p13Goals={};if(!st.p13Claimed||!Array.isArray(st.p13Claimed))st.p13Claimed=[];if(!st.p13SpecialClaimed||!Array.isArray(st.p13SpecialClaimed))st.p13SpecialClaimed=[];}
