@@ -1415,4 +1415,53 @@ render();
   setTimeout(placeGuestName,250);
 })();
 </script>
+
+<!-- v9.6.4: 손님 보기 / 가게 보기 (visual-only; no gameplay or save state changes) -->
+<style id="tycoon-v964-view-style">
+.scene.tycoon-room-view #portrait,
+.scene.tycoon-room-view #who,
+.scene.tycoon-room-view #bubble,
+.scene.tycoon-room-view #p61Mood,
+.scene.tycoon-room-view #guestParticles,
+.scene.tycoon-room-view #guestStatus,
+.scene.tycoon-room-view #p5SceneDecor,
+.scene.tycoon-room-view .historical-prop {
+  visibility:hidden!important;
+  opacity:0!important;
+  pointer-events:none!important;
+}
+.scene #tycoonViewSwitch {
+  position:absolute;right:13px;bottom:12px;z-index:60;
+  padding:9px 14px;border:1px solid #e7c493;border-radius:12px;
+  color:#fff8e7;background:#30243de8;font:800 13px/1.2 inherit;
+  cursor:pointer;box-shadow:0 3px 12px #1b112788;
+}
+.scene #tycoonViewSwitch:hover{background:#4e3766}
+.scene #tycoonViewSwitch:focus-visible{outline:3px solid #f9cc72;outline-offset:3px}
+.scene.tycoon-room-view #tycoonViewSwitch{background:#fff0cd;color:#352844}
+@media(max-width:600px){.scene #tycoonViewSwitch{right:9px;bottom:9px;padding:8px 10px;font-size:12px}}
+</style>
+<script id="tycoon-v964-view-script">
+(function(){
+  'use strict';
+  const scene=document.querySelector('.layout > .left > .scene') || document.querySelector('.scene');
+  if(!scene || document.getElementById('tycoonViewSwitch')) return;
+  const button=document.createElement('button');
+  button.type='button';button.id='tycoonViewSwitch';
+  button.setAttribute('aria-pressed','false');
+  button.setAttribute('aria-label','가게 전체 보기로 전환');
+  const update=()=>{
+    const room=scene.classList.contains('tycoon-room-view');
+    button.textContent=room?'👤 손님 보기':'🏠 가게 보기';
+    button.setAttribute('aria-pressed',String(room));
+    button.setAttribute('aria-label',room?'손님 응대 화면으로 돌아가기':'가게 장식 전체 보기');
+  };
+  button.addEventListener('click',()=>{
+    scene.classList.toggle('tycoon-room-view');
+    update();
+  });
+  scene.appendChild(button);update();
+  // 주문 진행, 보상, 저장 및 자동 손님 전환 로직은 건드리지 않습니다.
+})();
+</script>
 </body></html>
