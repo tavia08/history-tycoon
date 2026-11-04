@@ -1,0 +1,30 @@
+{
+  "old_html_bytes": 12722916,
+  "new_html_bytes": 636475,
+  "total_embedded_references": 203,
+  "unique_external_assets": 167,
+  "formats": {
+    "png": 28,
+    "webp": 144,
+    "svg+xml": 27,
+    "jpeg": 4
+  },
+  "invalid": [
+    "Invalid base64-encoded string: number of data characters (18117) cannot be 1 more than a multiple of 4",
+    "Invalid base64-encoded string: number of data characters (18117) cannot be 1 more than a multiple of 4",
+    "Invalid base64-encoded string: number of data characters (49413) cannot be 1 more than a multiple of 4",
+    "Invalid base64-encoded string: number of data characters (23441) cannot be 1 more than a multiple of 4",
+    "Invalid base64-encoded string: number of data characters (23441) cannot be 1 more than a multiple of 4",
+    "Excess padding not allowed",
+    "Excess padding not allowed",
+    "Excess padding not allowed",
+    "Excess padding not allowed",
+    "Excess padding not allowed",
+    "Excess padding not allowed",
+    "Incorrect padding"
+  ],
+  "original_total_bytes": 13675657,
+  "optimized_total_bytes": 7719498,
+  "browser_qa": "1440/820/390 widths: 0 JS errors, 0 horizontal overflow (asset placeholders in browser due to local route restriction)",
+  "limitations": "12 malformed data:image;base64 values existed in source and remain unchanged; real loaded images on GitHub not tested"
+}

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 640" preserveAspectRatio="xMidYMid slice">
+<defs>
+ <linearGradient id="wall" x2="0" y2="1"><stop stop-color="#ddc3a1"/><stop offset=".56" stop-color="#c59a76"/><stop offset="1" stop-color="#a77857"/></linearGradient>
+ <linearGradient id="floor" x2="0" y2="1"><stop stop-color="#9e6546"/><stop offset="1" stop-color="#57382d"/></linearGradient>
+ <linearGradient id="counter" x2="0" y2="1"><stop stop-color="#b98456"/><stop offset="1" stop-color="#70432e"/></linearGradient>
+ <linearGradient id="sky" x2="0" y2="1"><stop stop-color="#344d62"/><stop offset="1" stop-color="#b0a7ad"/></linearGradient>
+ <radialGradient id="glow"><stop stop-color="#fff5d0" stop-opacity=".9"/><stop offset="1" stop-color="#ffd98e" stop-opacity="0"/></radialGradient>
+ <pattern id="mat" width="42" height="24" patternUnits="userSpaceOnUse"><path d="M0 22H42M21 0V22" stroke="#e8cc98" stroke-opacity=".28" stroke-width="2"/></pattern>
+ <filter id="shadow" x="-30%" y="-30%" width="160%" height="160%"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-color="#3e251a" flood-opacity=".35"/></filter>
+</defs>
+<path fill="url(#wall)" d="M0 0H1000V450H0z"/>
+<path fill="#65422f" d="M0 0H1000V34H0z"/>
+<path fill="#8c603d" d="M0 30H1000V52H0z"/>
+<path fill="#6f4a31" d="M60 0H90V455H60zM910 0H940V455H910zM0 418H1000V445H0z"/>
+<path fill="#b18b62" d="M0 445H1000V640H0z"/>
+<path fill="url(#floor)" d="M0 466H1000V640H0z"/><path fill="url(#mat)" d="M0 466H1000V640H0z"/>
+<!-- framed traditional lattice window -->
+<rect x="290" y="72" width="405" height="292" rx="8" fill="#644330" stroke="#e8c38b" stroke-width="12" filter="url(#shadow)"/>
+<rect x="313" y="92" width="360" height="250" fill="url(#sky)"/>
+<path d="M313 315Q415 239 521 280T673 255V343H313" fill="#5f7776"/><path d="M313 334Q425 287 506 304T673 293V343H313" fill="#89917e"/>
+<g fill="none" stroke="#dbb88a" stroke-width="11"><path d="M396 92V342M493 92V342M585 92V342M313 174H673M313 253H673"/></g>
+<g fill="none" stroke="#6e4b35" stroke-width="5"><path d="M396 92V342M493 92V342M585 92V342M313 174H673M313 253H673"/></g>
+<path d="M283 365H700" stroke="#ecc88c" stroke-width="18" stroke-linecap="round"/>
+<!-- left tea cupboard -->
+<g filter="url(#shadow)"><rect x="108" y="134" width="143" height="260" rx="5" fill="#674632" stroke="#c28a5d" stroke-width="10"/><path d="M112 222H246M112 305H246" stroke="#b78255" stroke-width="10"/>
+<g fill="#eacda6"><path d="M130 179q19-22 39 0l-5 27h-28z"/><path d="M186 187h38v15h-38z"/><path d="M129 256h38v31h-38z"/><path d="M190 260h31v26h-31z"/></g><path d="M133 351q26-34 50 0" stroke="#d5b08d" stroke-width="11" fill="none"/>
+</g>
+<!-- teapot silhouette on hanging shelf -->
+<path d="M718 187h178" stroke="#6b492f" stroke-width="16" stroke-linecap="round"/><g fill="#e9c79e" stroke="#8a654f" stroke-width="4"><path d="M750 157h49l-5 29h-38z"/><path d="M821 150h45v35h-45z"/></g>
+<!-- two traditional hanging lights -->
+<path d="M169 0V71M838 0V78" stroke="#594331" stroke-width="7"/>
+<circle cx="169" cy="112" r="104" fill="url(#glow)"/><circle cx="838" cy="112" r="104" fill="url(#glow)"/>
+<g fill="#f4d8a0" stroke="#754834" stroke-width="8"><path d="M130 73h78v86h-78zM799 79h78v86h-78z"/></g>
+<g stroke="#9a6d48" stroke-width="5"><path d="M148 77v81M170 77v81M191 77v81M817 82v80M838 82v80M859 82v80"/></g>
+<!-- main counter, kept behind visitor portrait -->
+<path d="M0 452H1000V477H0z" fill="#e6b67c" stroke="#6b432f" stroke-width="9"/>
+<path d="M0 481H1000V640H0z" fill="url(#counter)"/>
+<path d="M0 515H1000" stroke="#e2ae75" stroke-width="8"/>
+<g stroke="#75442e" stroke-width="9"><path d="M100 522V640M310 522V640M520 522V640M730 522V640M940 522V640"/></g>
+<g fill="#d4a46e" opacity=".65"><path d="M115 539h177v84H115zM325 539h178v84H325zM535 539h177v84H535zM745 539h176v84H745z"/></g>
+<!-- tea service -->
+<g filter="url(#shadow)"><ellipse cx="734" cy="461" rx="105" ry="14" fill="#543327" opacity=".4"/><path d="M696 434q-8-35 35-38h46q26 4 17 40l-15 18h-68z" fill="#f3dcbb" stroke="#966b51" stroke-width="6"/><path d="M792 408q39-8 22 30h-22" stroke="#e8c8a2" stroke-width="10" fill="none"/><ellipse cx="746" cy="399" rx="42" ry="8" fill="#f5e5cd"/><path d="M840 440h49l-7 21h-35z" fill="#f1debd" stroke="#94745e" stroke-width="5"/></g>
+</svg>

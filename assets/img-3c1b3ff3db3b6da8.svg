@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160"><defs>
+<linearGradient id="wood" x2="1" y2="1"><stop stop-color="#dba779"/><stop offset=".48" stop-color="#865332"/><stop offset="1" stop-color="#3c211c"/></linearGradient>
+<linearGradient id="gold" x2="1" y2="1"><stop stop-color="#fff1b9"/><stop offset=".5" stop-color="#d39947"/><stop offset="1" stop-color="#87501e"/></linearGradient>
+<linearGradient id="paper" x2=".1" y2=".9"><stop stop-color="#fff5cf"/><stop offset="1" stop-color="#ecb767"/></linearGradient>
+<linearGradient id="porcelain" x2="0" y2="1"><stop stop-color="#fff9e9"/><stop offset=".48" stop-color="#9cbad0"/><stop offset="1" stop-color="#486c80"/></linearGradient>
+<linearGradient id="leaf" x2="0" y2="1"><stop stop-color="#a3c582"/><stop offset="1" stop-color="#375c38"/></linearGradient>
+<radialGradient id="glow"><stop stop-color="#ffe9a6" stop-opacity=".8"/><stop offset="1" stop-color="#ffb64e" stop-opacity="0"/></radialGradient>
+<filter id="sh"><feGaussianBlur stdDeviation="2"/></filter>
+</defs><ellipse cx="82" cy="147" rx="54" ry="7" fill="#201417" opacity=".27" filter="url(#sh)"/><path d="M33 102h98l-14 36H47Z" fill="url(#wood)" stroke="#b4825d" stroke-width="4"/><ellipse cx="82" cy="101" rx="50" ry="9" fill="#533629"/><path d="M80 106v-63M81 78Q55 68 48 47M81 89Q116 71 120 54" stroke="#4b4931" stroke-width="6" fill="none"/><g fill="url(#leaf)" stroke="#48633e" stroke-width="2"><ellipse cx="56" cy="42" rx="24" ry="12" transform="rotate(32 56 42)"/><ellipse cx="110" cy="40" rx="27" ry="13" transform="rotate(-35 110 40)"/><ellipse cx="79" cy="27" rx="20" ry="11"/><ellipse cx="105" cy="73" rx="20" ry="9" transform="rotate(-29 105 73)"/><ellipse cx="53" cy="69" rx="17" ry="9" transform="rotate(22 53 69)"/></g><path d="M55 113q28 10 52 0" fill="none" stroke="#e4bd85" stroke-width="3"/></svg>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160"><defs>
+<linearGradient id="wood" x2="1" y2="1"><stop stop-color="#dba779"/><stop offset=".48" stop-color="#865332"/><stop offset="1" stop-color="#3c211c"/></linearGradient>
+<linearGradient id="gold" x2="1" y2="1"><stop stop-color="#fff1b9"/><stop offset=".5" stop-color="#d39947"/><stop offset="1" stop-color="#87501e"/></linearGradient>
+<linearGradient id="paper" x2=".1" y2=".9"><stop stop-color="#fff5cf"/><stop offset="1" stop-color="#ecb767"/></linearGradient>
+<linearGradient id="porcelain" x2="0" y2="1"><stop stop-color="#fff9e9"/><stop offset=".48" stop-color="#9cbad0"/><stop offset="1" stop-color="#486c80"/></linearGradient>
+<linearGradient id="leaf" x2="0" y2="1"><stop stop-color="#a3c582"/><stop offset="1" stop-color="#375c38"/></linearGradient>
+<radialGradient id="glow"><stop stop-color="#ffe9a6" stop-opacity=".8"/><stop offset="1" stop-color="#ffb64e" stop-opacity="0"/></radialGradient>
+<filter id="sh"><feGaussianBlur stdDeviation="2"/></filter>
+</defs><ellipse cx="80" cy="150" rx="60" ry="8" fill="#151015" opacity=".25" filter="url(#sh)"/><path d="M24 15h112v131H24z" fill="url(#wood)" stroke="#d8a878" stroke-width="5"/><path d="M35 26h90v111H35z" fill="#35231e"/><path d="M33 62h94M33 101h94" stroke="#c08b56" stroke-width="7"/><path d="M43 36h12v24H43zm15-9h12v33H58zm15 12h13v21H73z" fill="#a66343"/><path d="M92 59q-5-29 10-29 15 0 10 29" fill="url(#porcelain)" stroke="#d6cfb2" stroke-width="2"/><path d="M43 76h16v23H43zm19-8h11v31H62zm14 12h11v19H76" fill="#aa7b56"/><path d="M99 96q-12-18 0-22 13 0 18 22" fill="#d9b084"/><path d="M44 111h23v19H44zM75 111h10v19H75z" fill="#9c5d47"/><path d="M91 125q-4-18 12-18 14 0 14 18" fill="url(#porcelain)"/><path d="M32 18h96" stroke="#f7cf87" opacity=".75" stroke-width="3"/></svg>
