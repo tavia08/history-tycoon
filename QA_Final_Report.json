@@ -1,0 +1,67 @@
+{
+  "source": "v10.2.2",
+  "version": "v10.2.3",
+  "assets": 167,
+  "references": 167,
+  "repaired_invalid_inline_images": 12,
+  "replacements": [
+    [
+      "body",
+      "season1-simple-room.jpg"
+    ],
+    [
+      ".scene",
+      "season1-simple-room.jpg"
+    ],
+    [
+      ".portrait",
+      "assets/img-f3701dce3eb8f804.png"
+    ],
+    [
+      ".portrait.guest-saimdang",
+      "assets/img-f3701dce3eb8f804.png"
+    ],
+    [
+      ".p8-face-saimdang",
+      "assets/img-f3701dce3eb8f804.png"
+    ],
+    [
+      ".portrait.guest-yeongjo",
+      "assets/img-a0704d44224a5f2b.webp"
+    ],
+    [
+      ".p8-face-yeongjo",
+      "assets/img-a0704d44224a5f2b.webp"
+    ],
+    [
+      ".portrait.guest-gwanghae",
+      "assets/img-9bdd21c7c5d19a77.webp"
+    ],
+    [
+      ".p8-face-gwanghae",
+      "assets/img-9bdd21c7c5d19a77.webp"
+    ],
+    [
+      ".portrait.guest-daewongun",
+      "assets/img-e59aa009315a6ade.webp"
+    ],
+    [
+      ".p8-face-daewongun",
+      "assets/img-e59aa009315a6ade.webp"
+    ],
+    [
+      ".portrait.guest-saimdang:not(.guest-happy):not(.guest-unhappy)",
+      "assets/img-f3701dce3eb8f804.png"
+    ]
+  ],
+  "scripts_syntax_pass": 7,
+  "missing_assets": [],
+  "all_images_decodable_or_svg_valid": true,
+  "limit": "GitHub Pages deployment / multi-client network and persistent storage not tested",
+  "browser_check": {
+    "1440px": "no JS errors, no network 404, no horizontal overflow",
+    "820px": "no JS errors, no network 404, no horizontal overflow",
+    "390px": "no JS errors, no network 404, no horizontal overflow",
+    "method": "Chromium set_content with route intercept to real packaged assets; not actual GitHub hosting"
+  }
+}
