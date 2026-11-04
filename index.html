@@ -876,11 +876,31 @@ const ALL_SEASON_ORDERS=[...ORIGINAL_ORDERS,...SEASON2_ORDERS,...SEASON3_ORDERS]
 function freePool(){return st.season3Unlocked||st.seasonMode==='season3'?ALL_SEASON_ORDERS:(st.season2Unlocked||st.seasonMode==='season2'?[...ORIGINAL_ORDERS,...SEASON2_ORDERS]:ORIGINAL_ORDERS);}
 
 /* v9.7.5: cross-repository hub handoff; keep student saves isolated per browser. */
-const TYCOON_BRIDGE=null; // DEVELOPMENT TEST ONLY: no student bridge or cloud telemetry
+/* v10.2.4: hub handoff and per-student browser saves.
+   Hub passes #bridge=tycoon-s1&no=...&name=...&id=...&back=...
+   A lone URL without a hub handoff uses the existing standalone save key.
+   DO NOT migrate the previous shared release key into a student-scoped key:
+   ownership of that earlier save cannot be verified on a shared device. */
+function tycoonReadHubBridge(){
+  try{
+    const h=new URLSearchParams(location.hash.replace(/^#/,''));
+    if(h.get('bridge')!=='tycoon-s1')return null;
+    const id=String(h.get('id')||'').trim();
+    const no=String(h.get('no')||'').trim();
+    const name=String(h.get('name')||'').trim();
+    if(!id||!no||!name||id!==no+'_'+name||id.length>160)return null;
+    let back='';
+    try{const u=new URL(h.get('back')||'');
+      if(u.protocol==='https:'&&u.hostname==='tavia08.github.io'&&u.pathname.startsWith('/history-hub'))back=u.href;
+    }catch(e){}
+    return {id,no,name,back};
+  }catch(e){return null}
+}
+const TYCOON_BRIDGE=tycoonReadHubBridge();
 const TYCOON_HUB_MODE=!!TYCOON_BRIDGE;
 const TYCOON_HUB_STUDENT=TYCOON_BRIDGE;
-const TYCOON_STUDENT_KEY=TYCOON_HUB_STUDENT ? 'history_tycoon_p3_v04_student_'+encodeURIComponent(TYCOON_HUB_STUDENT.id) : (TYCOON_HUB_MODE ? 'history_tycoon_invalid_hub_session' : 'history_tycoon_p3_v04');
-const KEY='history_tycoon_s1s2_release_1021';const $=id=>document.getElementById(id);let st={idx:0,money:100,rating:4.5,success:0,selected:[],finished:false,owned:false,logs:[],seasonMode:"story",season2Unlocked:false,freeCycles:0,orderPlan:null};let activeCat='전체';let busy=false;const DECOR=[{id:'lantern',name:'한옥 등불',icon:'🏮',cost:60,desc:'따뜻한 조명으로 찻집 꾸미기'},{id:'flower',name:'매화 화병',icon:'🌸',cost:75,desc:'꽃 장식으로 봄 분위기 연출'},{id:'moon',name:'매화 족자',icon:'🖌️',cost:90,desc:'벽면을 꾸미는 매화 족자 장식'},{id:'shelf',name:'서책 진열장',icon:'📚',cost:110,desc:'역사 서책으로 꾸민 공간'},{id:'screen',name:'다기 진열상',icon:'🍶',cost:160,level:2,desc:'Lv.2에서 해금 · 찻잔과 주전자를 놓는 낮은 진열상'},{id:'garden',name:'달빛 정원',icon:'🌿',cost:220,level:3,desc:'Lv.3에서 해금 · 고즈넉한 정원 분위기'},{id:'royal',name:'왕실 다과상',icon:'🍡',cost:300,level:4,desc:'Lv.4에서 해금 · 손님 맞이용 다과상'}];
+const TYCOON_STUDENT_KEY=TYCOON_HUB_STUDENT ? 'history_tycoon_s1s2_v1024_student_'+encodeURIComponent(TYCOON_HUB_STUDENT.id) : 'history_tycoon_s1s2_release_1021';
+const KEY=TYCOON_STUDENT_KEY;const $=id=>document.getElementById(id);let st={idx:0,money:100,rating:4.5,success:0,selected:[],finished:false,owned:false,logs:[],seasonMode:"story",season2Unlocked:false,freeCycles:0,orderPlan:null};let activeCat='전체';let busy=false;const DECOR=[{id:'lantern',name:'한옥 등불',icon:'🏮',cost:60,desc:'따뜻한 조명으로 찻집 꾸미기'},{id:'flower',name:'매화 화병',icon:'🌸',cost:75,desc:'꽃 장식으로 봄 분위기 연출'},{id:'moon',name:'매화 족자',icon:'🖌️',cost:90,desc:'벽면을 꾸미는 매화 족자 장식'},{id:'shelf',name:'서책 진열장',icon:'📚',cost:110,desc:'역사 서책으로 꾸민 공간'},{id:'screen',name:'다기 진열상',icon:'🍶',cost:160,level:2,desc:'Lv.2에서 해금 · 찻잔과 주전자를 놓는 낮은 진열상'},{id:'garden',name:'달빛 정원',icon:'🌿',cost:220,level:3,desc:'Lv.3에서 해금 · 고즈넉한 정원 분위기'},{id:'royal',name:'왕실 다과상',icon:'🍡',cost:300,level:4,desc:'Lv.4에서 해금 · 손님 맞이용 다과상'}];
 const P14_THRESHOLDS=[0,3,9,16];
 function p14Level(){const n=Math.max(0,Number(st.success)||0);return n>=16?4:n>=9?3:n>=3?2:1}
 function p14Growth(){const n=Math.max(0,Number(st.success)||0),lv=p14Level(),low=P14_THRESHOLDS[lv-1],high=P14_THRESHOLDS[lv]??16;const names=['','작은 찻집','소문난 찻집','달빛 찻집','역사의 명소'];$('p14Level').textContent='🏡 찻집 Lv.'+lv+' · '+names[lv];$('p14Badge').textContent='완전 성공 '+n+'회';$('p14Fill').style.width=(lv>=4?100:Math.min(100,Math.round((n-low)/(high-low)*100)))+'%';$('p14Next').textContent=lv>=4?'최고 레벨 달성! 모든 특별 장식이 해금되었습니다.':'다음 레벨까지 완전 성공 '+(high-n)+'회 · 레벨 상승 시 새로운 장식 해금';const visits=ORDERS.slice(0,Math.min(st.idx,ORDERS.length)).filter(o=>o.who===current()?.who).length;$('p14Guest').textContent=visits?'☕ 재방문 '+visits+'회 · '+current().who+' 단골손님':'☕ 첫 방문 손님 · 만족도에 따라 엽전과 별점을 받아요';}

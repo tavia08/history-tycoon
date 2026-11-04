@@ -1,0 +1,10 @@
+History Tycoon v10.2.4 - hub login/save correction
+
+1. Hub #bridge=tycoon-s1 URL handshake restored.
+2. Student-specific localStorage keys used for hub entry.
+3. Standalone direct URL retains v10.2.3 save key.
+4. Existing shared release key is not migrated into student key to avoid assigning wrong student progress.
+5. All season1/2 content and images unchanged.
+6. IMPORTANT: This is not identity verification. URL hash values can be modified.
+7. Existing season1 GitHub Pages localStorage on a different origin cannot be automatically transferred.
+8. Verify back navigation and saved progress on the deployed domain.
