@@ -911,7 +911,16 @@ body:has(.quick-mask:not([hidden])),body:has(.p12-mask:not([hidden])),body:has(.
 #p5Panel .tycoon-season3-luxury .f-goryeo-celadon{
  left:91%!important;top:40%!important;width:5%!important;height:13%!important;
 }
-</style></head><body><div class="app"><header class="top"><div class="brand">✦ 역사 타이쿤 <small>별빛 역사 찻집 · P16 다중 장식 배치</small></div><div class="stats"><div class="stat" id="day">☀️ 1일 차</div><div class="stat" id="money">🪙 100냥</div><div class="stat" id="rating">⭐ 4.5</div><div class="stat" id="count">📜 0 / 24</div></div></header>
+</style>
+<style id="goryeo-props-art-v1055">
+/* v10.5.5: keep original scene placement and furnish gating; art only */
+.p15-object.f-goryeo-celadon,.p15-object.f-goryeo-teaware,.p15-object.f-goryeo-lotus{background-color:transparent!important;border:none!important;border-radius:0!important;box-shadow:none!important;background-repeat:no-repeat!important;background-position:center center!important;background-size:contain!important;color:transparent!important;overflow:visible!important;}
+.p15-object.f-goryeo-celadon{background-image:url('assets/goryeo-celadon-vase.webp')!important;}
+.p15-object.f-goryeo-teaware{background-image:url('assets/goryeo-teaware.webp')!important;}
+.p15-object.f-goryeo-lotus{background-image:url('assets/goryeo-lotus-scroll.webp')!important;}
+.p15-object.f-goryeo-celadon::before,.p15-object.f-goryeo-celadon::after,.p15-object.f-goryeo-teaware::before,.p15-object.f-goryeo-teaware::after,.p15-object.f-goryeo-lotus::before,.p15-object.f-goryeo-lotus::after{content:none!important;display:none!important;}
+</style>
+</head><body><div class="app"><header class="top"><div class="brand">✦ 역사 타이쿤 <small>별빛 역사 찻집 · P16 다중 장식 배치</small></div><div class="stats"><div class="stat" id="day">☀️ 1일 차</div><div class="stat" id="money">🪙 100냥</div><div class="stat" id="rating">⭐ 4.5</div><div class="stat" id="count">📜 0 / 24</div></div></header>
 <div id="eraJourneyGuide" role="note" aria-label="시즌별 방문 시대 안내">
  <strong>🧭 역사 여행 안내</strong><span>찻집의 시즌은 <b>가게 성장 순서</b>입니다. 역사 시대순으로 진행하는 것은 아닙니다.</span>
  <div class="eraJourneyStops" aria-label="방문 시대 순서"><span>시즌 1 <b>조선 시대</b></span><i aria-hidden="true">→</i><span>시즌 2 <b>삼국 시대</b></span><i aria-hidden="true">→</i><span>시즌 3 <b>고려 시대</b></span></div>
@@ -1170,7 +1179,7 @@ function recover(){
 function current(){return ORDERS[st.idx]}
 function stat(){queueMicrotask(updateSeason2Scene); $('day').textContent=(st.seasonMode==='free'?'♾️ 자유 '+(st.freeCycles||1)+'회차 · ':st.seasonMode==='season3'?'🏯 시즌 3 · ':st.seasonMode==='season2'?'🌿 시즌 2 · ':'🌸 시즌 1 · ')+`☀️ ${Math.floor(st.idx/3)+1}일 차`;$('money').textContent=`🪙 ${st.money}냥`;$('rating').textContent=`⭐ ${st.rating.toFixed(1)}`;$('count').textContent=`📜 ${st.idx} / ${ORDERS.length}`;}
 const V68_JINMYOSU_IMAGE='assets/img-0de3484063bf3588.webp';
-const V69_HISTORY_PROPS={"서희": {"name": "강동 6주 지도", "src": "assets/img-2c126acc5c258821.png"}, "광개토 대왕": {"name": "광개토 대왕릉비", "src": "assets/img-e8bbda3827f8000d.png"}, "진흥왕": {"name": "진흥왕 순수비", "src": "assets/img-4e1dcec7d7aeb04e.png"}, "장수왕": {"name": "장군총", "src": "assets/img-ff35febd821e2bfb.png"}};
+const V69_HISTORY_PROPS={"광개토 대왕": {"name": "광개토 대왕릉비", "src": "assets/img-e8bbda3827f8000d.png"}, "진흥왕": {"name": "진흥왕 순수비", "src": "assets/img-4e1dcec7d7aeb04e.png"}, "장수왕": {"name": "장군총", "src": "assets/img-ff35febd821e2bfb.png"}};
 
 /* v7.0 historically identified character miniatures */
 V69_HISTORY_PROPS["세종"]={"name":"훈민정음 해례본","src":"assets/img-169526ca2a20de35.png"};

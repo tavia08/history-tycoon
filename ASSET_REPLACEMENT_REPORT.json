@@ -1,0 +1,26 @@
+{
+  "version": "10.5.3",
+  "baseline": "10.5.2",
+  "changed_assets": [
+    {
+      "item": "광개토 대왕릉비",
+      "path": "assets/img-e8bbda3827f8000d.png",
+      "method": "crop high-detail historical artifact artwork; remove captions from source composition",
+      "verified_reference": true
+    },
+    {
+      "item": "장군총",
+      "path": "assets/img-ff35febd821e2bfb.png",
+      "method": "crop high-detail historical artifact artwork; remove captions from source composition",
+      "verified_reference": true
+    },
+    {
+      "item": "진흥왕 순수비",
+      "path": "assets/img-4e1dcec7d7aeb04e.png",
+      "method": "crop high-detail historical artifact artwork; remove captions from source composition",
+      "verified_reference": true
+    }
+  ],
+  "scope": "three historical miniature assets, no game JS/CSS changes",
+  "caveat": "New art was cropped from generated multi-item illustration, not checked against museum photographs. Historical depictions require final teacher approval."
+}

@@ -1,0 +1,12 @@
+{
+  "base": "10.5.4",
+  "target": "10.5.5",
+  "added_assets": [
+    "assets/goryeo-celadon-vase.webp",
+    "assets/goryeo-teaware.webp",
+    "assets/goryeo-lotus-scroll.webp"
+  ],
+  "scope": "Goryeo 3 props art only, original JS and purchase logic unchanged",
+  "review_note": "Illustrative assets, not photographs; history teacher review before classroom release",
+  "test_note": "Static asset and path verification completed, browser/tablet gameplay not executed"
+}

@@ -1,0 +1,16 @@
+{
+  "release": "v10.5.6",
+  "base": "v10.5.4",
+  "checked_2026_11_05": true,
+  "check_results": {
+    "referenced_asset_paths": 172,
+    "missing_asset_paths": [],
+    "verified_raster_images": 159,
+    "image_decode_errors": [],
+    "preexisting_non_html_files_changed": [],
+    "new_goryeo_webp": 3,
+    "js_syntax": "PASS (node --check for all inline scripts)",
+    "browser_runtime": "NOT VERIFIED: headless Chromium blocked by environment policy"
+  },
+  "release_note": "v10.5.5 Goryeo art + static integrity audit; older PNG assets preserved because referenced in earlier CSS."
+}
