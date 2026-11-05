@@ -1,0 +1,16 @@
+{
+  "version": "10.5.2",
+  "type": "student release candidate - packaging cleanup only",
+  "source": "10.5.1",
+  "html_sha256": "fdf855e3ab4a5c594d9c26750b577692e28ffd2276b385e90a13e8d3dc3b181b",
+  "js_scripts_checked": 7,
+  "js_syntax_errors": 0,
+  "asset_refs_checked": 232,
+  "asset_refs_missing": [],
+  "dev_ui_hidden_by_css": true,
+  "dev_code_deleted": false,
+  "real_browser_reload": "not verified - local navigation blocked",
+  "live_google_sheets": "not verified",
+  "full_ui_images": "verified in v10.5.1 with embedded asset harness",
+  "changes": "removed QA screenshots and test reports from student ZIP; gameplay files unchanged"
+}
